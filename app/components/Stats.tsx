@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { ChartBarIcon, UserGroupIcon, GlobeAltIcon, CpuChipIcon } from '@heroicons/react/24/outline';
 import Office from '../assets/office.png';
 import Image from 'next/image';
@@ -46,7 +47,13 @@ export default function Stats() {
   );
 }
 
-function Stat({ number, text, icon }) {
+type StatProps = {
+  number: string;
+  text: ReactNode;
+  icon: ReactNode;
+};
+
+function Stat({ number, text, icon }: StatProps) {
   return (
     <div className="flex items-center space-x-3">
       <div className="bg-gray-700 p-3 rounded-full">{icon}</div>
